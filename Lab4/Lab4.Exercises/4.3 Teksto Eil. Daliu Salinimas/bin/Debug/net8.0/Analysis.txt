@@ -1,0 +1,11 @@
+// string pav, tip;
+// string pav, tip;
+// GrybasInfo s1;
+// GrybasInfo s1;
+ while(!fd.eof() && yra) { // kol yra duomenų ir jie telpa į masyvą
+ while(!fd.eof() && yra) { // kol yra duomenų ir jie telpa į masyvą
+ /*if(!fd.eof() && (ns - 1 < Grybai::CMax ) )
+ grybai[ns++] = s1; // įrašo naują elementą
+ grybai[ns++] = s1; // įrašo naują elementą
+ else
+ yra = false;*/

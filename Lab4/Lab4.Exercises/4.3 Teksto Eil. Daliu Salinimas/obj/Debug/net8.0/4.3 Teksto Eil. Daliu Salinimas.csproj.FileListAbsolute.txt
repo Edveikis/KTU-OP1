@@ -1,0 +1,15 @@
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\bin\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.exe
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\bin\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.deps.json
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\bin\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.runtimeconfig.json
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\bin\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.dll
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\bin\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.pdb
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.AssemblyInfoInputs.cache
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.AssemblyInfo.cs
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.csproj.CoreCompileInputs.cache
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.dll
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\refint\4.3 Teksto Eil. Daliu Salinimas.dll
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.pdb
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\4.3 Teksto Eil. Daliu Salinimas.genruntimeconfig.cache
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\obj\Debug\net8.0\ref\4.3 Teksto Eil. Daliu Salinimas.dll
+C:\Users\edvin\Programming\L4\Lab4.Exercises\4.3 Teksto Eil. Daliu Salinimas\bin\Debug\net8.0\Data.txt

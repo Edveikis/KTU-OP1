@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\edvin\\Programming\\L4\\Lab4.Exercises\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A77EEC4C-F267-4E95-80DB-1416EA929BA1}|4.6 Analizes Failo Kurimas\\4.6 Analizes Failo Kurimas.csproj|c:\\users\\edvin\\programming\\l4\\lab4.exercises\\4.6 analizes failo kurimas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A77EEC4C-F267-4E95-80DB-1416EA929BA1}|4.6 Analizes Failo Kurimas\\4.6 Analizes Failo Kurimas.csproj|solutionrelative:4.6 analizes failo kurimas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A77EEC4C-F267-4E95-80DB-1416EA929BA1}|4.6 Analizes Failo Kurimas\\4.6 Analizes Failo Kurimas.csproj|c:\\users\\edvin\\programming\\l4\\lab4.exercises\\4.6 analizes failo kurimas\\taskutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A77EEC4C-F267-4E95-80DB-1416EA929BA1}|4.6 Analizes Failo Kurimas\\4.6 Analizes Failo Kurimas.csproj|solutionrelative:4.6 analizes failo kurimas\\taskutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A77EEC4C-F267-4E95-80DB-1416EA929BA1}|4.6 Analizes Failo Kurimas\\4.6 Analizes Failo Kurimas.csproj|c:\\users\\edvin\\programming\\l4\\lab4.exercises\\4.6 analizes failo kurimas\\data.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A77EEC4C-F267-4E95-80DB-1416EA929BA1}|4.6 Analizes Failo Kurimas\\4.6 Analizes Failo Kurimas.csproj|solutionrelative:4.6 analizes failo kurimas\\data.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\edvin\\Programming\\L4\\Lab4.Exercises\\4.6 Analizes Failo Kurimas\\Program.cs",
+              "RelativeDocumentMoniker": "4.6 Analizes Failo Kurimas\\Program.cs",
+              "ToolTip": "C:\\Users\\edvin\\Programming\\L4\\Lab4.Exercises\\4.6 Analizes Failo Kurimas\\Program.cs",
+              "RelativeToolTip": "4.6 Analizes Failo Kurimas\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T20:38:52.581Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaskUtils.cs",
+              "DocumentMoniker": "C:\\Users\\edvin\\Programming\\L4\\Lab4.Exercises\\4.6 Analizes Failo Kurimas\\TaskUtils.cs",
+              "RelativeDocumentMoniker": "4.6 Analizes Failo Kurimas\\TaskUtils.cs",
+              "ToolTip": "C:\\Users\\edvin\\Programming\\L4\\Lab4.Exercises\\4.6 Analizes Failo Kurimas\\TaskUtils.cs",
+              "RelativeToolTip": "4.6 Analizes Failo Kurimas\\TaskUtils.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAiwBkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T20:40:42.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Data.txt",
+              "DocumentMoniker": "C:\\Users\\edvin\\Programming\\L4\\Lab4.Exercises\\4.6 Analizes Failo Kurimas\\Data.txt",
+              "RelativeDocumentMoniker": "4.6 Analizes Failo Kurimas\\Data.txt",
+              "ToolTip": "C:\\Users\\edvin\\Programming\\L4\\Lab4.Exercises\\4.6 Analizes Failo Kurimas\\Data.txt",
+              "RelativeToolTip": "4.6 Analizes Failo Kurimas\\Data.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-11-13T20:39:05.762Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
