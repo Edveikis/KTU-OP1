@@ -4,44 +4,54 @@
     {
         internal static void Main(string[] args)
         {
-            // Create shop register, read data into it
-            ShopRegister shopRegister = InOutUtils.GetRingsFromFile("data.csv");
-            if (shopRegister.GetShopCount() == 2)
+            RingShop shop0 = InOutUtils.GetRingsFromFile("data.csv");
+            RingShop shop1 = InOutUtils.GetRingsFromFile("data1.csv");
+
+            if (shop0 != null && shop1 != null)
             {
-                // Find most expensive, highest praba ring
-                Ring expensiveHighestPrabaRing = shopRegister.GetHighestPriceHighPrabaRing();
-                if (expensiveHighestPrabaRing != null)
-                {
-                    // Find its shop
-                    RingShop shop = shopRegister.GetRingShop(expensiveHighestPrabaRing);
+                List<RingShop> shops = new List<RingShop>();
 
-                    if (shop != null)
-                    {
-                        Console.WriteLine("Brangiausio, auksciausios prabos ziedo parduotuve: {0}", shop.Name);
-                        InOutUtils.PrintRingData(expensiveHighestPrabaRing);
-                        Console.WriteLine();
-                    }
-                    else Console.WriteLine("[ERROR] parduotuve pagal pateikta zieda nerasta");
-                }
-                else Console.WriteLine("[ERROR] auksciausios prabos brangiausias ziedas nerastas");
+                shops.Add(shop0);
+                shops.Add(shop1);
 
-                List<Ring> mostExpensiveRings = shopRegister.GetMostExpensiveRings();
-                if (mostExpensiveRings.Count != 0)
+                // Create shop register, read data into it
+                ShopRegister shopRegister = new ShopRegister(shops);
+
+                // Find the highest praba rings from all shops
+                List<RingShop> highestPrabaShops = new List<RingShop>();
+                shopRegister.GetMostExpensiveHighestPrabaShops(ref highestPrabaShops);
+                if (highestPrabaShops.Count > 0)
                 {
-                    // Find and print most expensive ring from each store
-                    InOutUtils.PrintMostExpensiveRingData(mostExpensiveRings, shopRegister);
+                    Console.WriteLine("Auksciausios prabos brangiausias ziedas");
+                    InOutUtils.PrintRingData(highestPrabaShops);
                     Console.WriteLine();
                 }
-                else Console.WriteLine("[ERROR] nerasti brangiausi ziedai");
+                else Console.WriteLine("[ERROR] auksciausios prabos ziedas nerastas");
 
-                List<Ring> cheapWhiteGoldRings = shopRegister.CheapWhiteRings(300.0);
-                if (cheapWhiteGoldRings.Count != 0)
-                    InOutUtils.WriteGoldRingDataToFile(cheapWhiteGoldRings, shopRegister, "BA300.csv");
-                else Console.WriteLine("[ERROR] nerasta pigiu balto aukso ziedu");
+                // Find the most expensive rings from all shops
+                List<RingShop> mostExpensiveShops = new List<RingShop>();
+                shopRegister.GetMostExpensiveRingsShops(ref mostExpensiveShops);
+                if (mostExpensiveShops.Count > 0)
+                {
+                    Console.WriteLine("Brangiausi ziedai:");
+                    InOutUtils.PrintRingData(mostExpensiveShops);
+                }
+                else
+                    Console.WriteLine("[ERROR] brangiausi ziedai nerasti");
 
-                InOutUtils.StartDataToTableFile(shopRegister, "startData.txt");
+                // Find cheap white gold rings from all shops
+                List<RingShop> cheapWhiteGoldShops = new List<RingShop>();
+                shopRegister.GetCheapWhiteGoldRingsShops(ref cheapWhiteGoldShops);
+                if (cheapWhiteGoldShops.Count > 0)
+                    InOutUtils.WriteGoldRingDataToFile(cheapWhiteGoldShops, "BA300.csv");
+                else
+                    Console.WriteLine("[ERROR] pigiu balto aukso ziedu nerasta");
+                InOutUtils.StartDataToTableFile(shopRegister, "pradiniai.txt");
             }
-            else Console.WriteLine("[ERROR] privalo buti 2 parduotuves, duomenu nepakanka, arba duomenys nerasti");
+            else
+            {
+                Console.WriteLine("[ERROR] privalo buti 2 parduotuves, duomenu nepakanka, arba duomenys nerasti");
+            }
         }
     }
 }

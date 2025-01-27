@@ -1,6 +1,5 @@
 ﻿class Ring
 {
-    // Methods
     public string Manufacturer { get; }
     public string Name { get; }
     public string MetalType { get; }
@@ -9,7 +8,6 @@
     public int Praba { get; }
     public double Price { get; }
 
-    // Constructors
     public Ring(string manufacturer, string name, string metalType, double weight, double size, int praba, double price)
     {
         Manufacturer = manufacturer;
@@ -21,81 +19,22 @@
         Price = price;
     }
 
-    // Operator overloads for logical operations
+    public override string ToString()
+    {
+        return string.Format("| {0,-20} | {1,-20} | {2,-20} | {3,20} | {4,20} | {5,20} | {6,20} |",
+        Manufacturer, Name, MetalType, Size, Weight, Praba, Price);
+    }
+
     public static bool operator ==(Ring ring1, Ring ring2)
     {
-        if (ring1 is null || ring2 is null) 
-            return false;
-
-        if (ReferenceEquals(ring1, ring2)) 
-            return true;
-
+        if (ReferenceEquals(ring1, ring2)) return true;
+        if (ring1 is null || ring2 is null) return false;
         return ring1.Name == ring2.Name && ring1.Manufacturer == ring2.Manufacturer;
     }
 
     public static bool operator !=(Ring ring1, Ring ring2)
     {
         return !(ring1 == ring2);
-    }
-
-    public static bool operator >(Ring ring, double price)
-    {
-        return ring.Price > price;
-    }
-
-    public static bool operator <(Ring ring, double price)
-    {
-        return ring.Price < price;
-    }
-
-    public static bool operator >=(Ring ring, double price)
-    {
-        return ring.Price >= price;
-    }
-
-    public static bool operator <=(Ring ring, double price)
-    {
-        return ring.Price <= price;
-    }
-
-    public static bool operator ==(Ring ring, double price)
-    {
-        return ring.Price == price;
-    }
-
-    public static bool operator !=(Ring ring, double price)
-    {
-        return !(ring == price);
-    }
-
-    public static bool operator >(Ring ring, int praba)
-    {
-        return ring.Praba > praba;
-    }
-
-    public static bool operator <(Ring ring, int praba)
-    {
-        return ring.Praba < praba;
-    }
-
-    public static bool operator >=(Ring ring, int praba)
-    {
-        return ring.Praba >= praba;
-    }
-
-    public static bool operator <=(Ring ring, int price)
-    {
-        return ring.Price <= price;
-    }
-
-    public static bool operator ==(Ring ring, int praba)
-    {
-        return ring.Praba == praba;
-    }
-
-    public static bool operator !=(Ring ring, int praba)
-    {
-        return !(ring == praba);
     }
 }
 

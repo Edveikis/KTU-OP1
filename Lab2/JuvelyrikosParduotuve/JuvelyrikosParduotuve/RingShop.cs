@@ -1,6 +1,5 @@
 ﻿internal class RingShop
 {
-    // Rings that the store has in stock
     List<Ring> rings;
     public string Name { get; }
     public string Address { get; }
@@ -14,79 +13,116 @@
         rings = new List<Ring>();
     }
 
-    // Returns list of rings that the store has
-    public List<Ring> GetRings() { return rings; }
+    public string GetName(int index) { return rings[index].Name; }
 
-    // Returns count of rings that the store has
-    public int GetRingCount() { return rings.Count; }
+    public int GetCount() { return rings.Count; }
 
-    // Adds a ring to the store ring list
     public void AddRing(Ring ring) { rings.Add(ring); }
 
-    // Returns the highest praba value amongst all rings
-    int GetHighestPraba()
+    public void AddRings(List<Ring> rings) { this.rings.AddRange(rings); }
+
+    public int GetHighestPraba()
     {
         int highestPraba = 0;
 
         foreach (Ring ring in rings)
-            if (ring > highestPraba)
+        {
+            if (ring.Praba > highestPraba)
                 highestPraba = ring.Praba;
+        }
 
         return highestPraba;
     }
 
-    // Returns a ring with the highest praba value
-    public Ring GetHighestPrabaRing()
+    public bool HigherPraba(RingShop other)
+    {
+        int highestPraba = GetHighestPraba();
+
+        if (highestPraba > other.GetHighestPraba())
+            return false;
+
+        return true;
+    }
+
+    // Method to get the highest praba ring encapsulated within the RingShop
+    public void GetHighestPrabaRingShop(ref RingShop highestPrabaRingShop)
     {
         Ring highestPrabaRing = null;
         int highestPraba = GetHighestPraba();
+        double highestPrice = 0;
 
         foreach (Ring ring in rings)
-            if (ring == highestPraba)
-                highestPrabaRing = ring;
+        {
+            if (ring.Praba == highestPraba)
+            {
+                if (ring.Price > highestPrice)
+                {
+                    highestPrice = ring.Price;
+                    highestPrabaRing = ring;
+                }
+            }
+        }
 
-        return highestPrabaRing;
+        if (highestPrabaRing == null) return;
+
+        // Create a new RingShop and add the most expensive highest praba ring to it
+        highestPrabaRingShop = new RingShop(Name, Address, PhoneNumber);
+        highestPrabaRingShop.AddRing(highestPrabaRing);
     }
 
-    // Returns the highest price amongst all rings
-    double GetHighestPrice()
+    public double HighestPrice()
     {
-        double highestPrice = 0.0;
+        double highestPrice = 0;
 
         foreach (Ring ring in rings)
-            if (ring > highestPrice)
+            if (ring.Price > highestPrice)
                 highestPrice = ring.Price;
 
         return highestPrice;
     }
 
-    // Returns a list of highest price rings
-    public List<Ring> GetHighestPriceRings()
+    // Method to get the most expensive rings encapsulated within the RingShop
+    public void GetHighestPriceRingShop(ref RingShop highestPriceRingShop)
     {
-        List<Ring> mostExpensiveRings = new List<Ring>();
-        double HighestPrice = GetHighestPrice();
+        double highestPrice = HighestPrice();
+        List<Ring> highestPriceRings = new List<Ring>();
 
         foreach (Ring ring in rings)
-        {
-            if (ring == HighestPrice)
-            {
-                HighestPrice = ring.Price;
-                mostExpensiveRings.Add(ring);
-            }
-        }
+            if (ring.Price == highestPrice)
+                highestPriceRings.Add(ring);
 
-        return mostExpensiveRings;
+        if (highestPriceRings.Count == 0)
+            return;
+
+        highestPriceRingShop = new RingShop(Name, Address, PhoneNumber);
+        highestPriceRingShop.AddRings(highestPriceRings);
     }
 
-    // Returns a list of rings that are made of white gold and cost less than 300
-    public List<Ring> GetCheapWhiteGoldRings(double maxPrice)
+    // Method to get cheap white gold rings encapsulated within the RingShop
+    public RingShop GetCheapWhiteGoldRingsShop()
     {
-        List<Ring> cheapGoldRings = new List<Ring>();
+        List<Ring> cheapWhiteGoldRings = new List<Ring>();
 
         foreach (Ring ring in rings)
-            if (ring.MetalType == "Baltas auksas" && ring < maxPrice)
-                cheapGoldRings.Add(ring);
+            if (ring.MetalType == "Baltas auksas" && ring.Price < 300)
+                cheapWhiteGoldRings.Add(ring);
 
-        return cheapGoldRings;
+        if (cheapWhiteGoldRings.Count == 0) return null;
+
+        RingShop cheapWhiteGoldRingShop = new RingShop(Name, Address, PhoneNumber);
+
+        cheapWhiteGoldRingShop.AddRings(cheapWhiteGoldRings);
+
+        return cheapWhiteGoldRingShop;
     }
+
+    public string GetFormattedRing(int index) { return rings[index].ToString(); }
+
+    public string FormatCSVRing(int index)
+    {
+        return string.Format("{0};{1};{2};{3};{4};{5};{6}",
+        rings[index].Manufacturer, rings[index].Name, rings[index].MetalType, rings[index].Size, rings[index].Weight, rings[index].Praba, rings[index].Price);
+    }
+
+    public string FormatTableRing(int index) { return rings[index].ToString(); }
 }

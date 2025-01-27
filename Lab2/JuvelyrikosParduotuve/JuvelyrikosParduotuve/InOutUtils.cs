@@ -1,9 +1,8 @@
 ﻿internal class InOutUtils
 {
     // Reads ring data from a file
-    public static ShopRegister GetRingsFromFile(string fileName)
+    public static RingShop GetRingsFromFile(string fileName)
     {
-        List<RingShop> shops = new List<RingShop>();
         RingShop shop = null;
 
         if (!File.Exists(fileName))
@@ -27,7 +26,6 @@
                     continue;
 
                 shop = new RingShop(storeName[0], storeAddress[0], phoneNumber[0]);
-                shops.Add(shop);
                 i += 2;
                 continue;
             }
@@ -56,93 +54,60 @@
         }
 
         // Return rings
-        return new ShopRegister(shops);
+        return shop;
     }
 
     // Prints data about a specific ring
-    public static void PrintRingData(Ring ring)
+    public static void PrintRingData(List<RingShop> stores)
     {
-        Console.WriteLine("{0} {1} {2} {3} {4} {5} {6}", ring.Manufacturer, ring.Name, ring.MetalType, ring.Weight, ring.Size, ring.Praba, ring.Price);
-    }
+        if (stores.Count == 0) return;
 
-    // Prints data about list of rings
-    public static void PrintRingsData(List<Ring> rings)
-    {
-        // If the list is empty, print a warning
-        if (rings.Count == 0)
-            Console.WriteLine("[ERROR] PrintRingData: rings list is empty!");
-        else
-            // Print all rings data
-            foreach (Ring ring in rings)
-                PrintRingData(ring);
-    }
-
-    // Prints data of most expensive rings
-    public static void PrintMostExpensiveRingData(List<Ring> mostExpensiveRings, ShopRegister register)
-    {
-        // If the list is empty, print a warning
-        if (mostExpensiveRings.Count == 0)
-            Console.WriteLine("[ERROR] PrintMostExpensiveRingData: no data in mostExpensiveRings list!");
-        else
+        foreach (RingShop store in stores)
         {
-            // Print all rings data
-            foreach (Ring ring in mostExpensiveRings)
-            {
-                RingShop ringShop = register.GetRingShop(ring);
-                if (ringShop != null)
-                    Console.WriteLine("Parduotuves: {0} brangiausias ziedas: {1} {2} {3} {4} {5} {6} {7}", ringShop.Name, ring.Manufacturer, ring.Name, ring.MetalType, ring.Size, ring.Weight, ring.Praba, ring.Price);
-            }
+            Console.WriteLine(store.Name);
+            for (int i = 0; i < store.GetCount(); ++i)
+                Console.WriteLine(store.GetFormattedRing(i));
         }
     }
 
-    // Writes all the data about cheap white gold rings to a file
-    public static void WriteGoldRingDataToFile(List<Ring> rings, ShopRegister register, string fileName)
+    public static void WriteGoldRingDataToFile(List<RingShop> cheapWhiteGoldShops, string fileName)
     {
         // If ring list is empty, show error
-        if (rings.Count == 0)
+        if (cheapWhiteGoldShops.Count == 0)
             Console.WriteLine("[ERROR] WriteRingDataToFile: writing to {0}, rings list empty!", fileName);
         else
         {
             // Write all the data to the file if list is not empty
             using (StreamWriter writer = new StreamWriter(fileName))
-                foreach (Ring ring in rings)
+                foreach (RingShop shop in cheapWhiteGoldShops)
                 {
-                    RingShop ringShop = register.GetRingShop(ring);
-                    if (ringShop != null)
-                        writer.WriteLine("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", ringShop.Name, ringShop.Address, ringShop.PhoneNumber, ring.Manufacturer, ring.Name, ring.MetalType, ring.Weight, ring.Size, ring.Praba, ring.Price);
+                    for (int i = 0; i < shop.GetCount(); ++i)
+                    {
+                        if (shop != null)
+                            writer.WriteLine(shop.FormatCSVRing(i));
+                    }
                 }
         }
     }
 
-    // Writes start data to a file with a table format
     public static void StartDataToTableFile(ShopRegister register, string fileName)
     {
-        List<RingShop> shops = register.GetShops();
-
         using (StreamWriter writer = new StreamWriter(fileName))
         {
-            for (int i = 0; i < shops.Count; ++i)
+            writer.WriteLine(new string('-', 162));
+            writer.WriteLine("| {0,-20} | {1,-20} | {2,-20} | {3,20} | {4,20} | {5,20} | {6,20} |",
+                "Gamintojas", "Pavadinimas", "Metalas", "Svoris", "Dydis", "Praba", "Kaina");
+            writer.WriteLine(new string('-', 162));
+            
+            for (int i = 0; i < register.GetShopCount(); ++i)
             {
-                RingShop shop = shops[i];
-                List<Ring> rings = shop.GetRings();
+                RingShop shop = register.GetShop(i);
 
-                if (rings.Count == 0)
-                    continue;
-
-                if (i == 0)
-                {
-                    writer.WriteLine(new string('-', 191));
-                    writer.WriteLine("| {0,-20} | {1,-20} | {2,20} | {3,-20} | {4,-20} | {5,-20} | {6,10} | {7,10} | {8,10} | {9,10} |",
-                        "Parduotuve", "Adresas", "Tel. nr.", "Gamintojas", "Pavadinimas", "Metalas", "Svoris", "Dydis", "Praba", "Kaina");
-                    writer.WriteLine(new string('-', 191));
-                }
-
-                foreach (Ring ring in rings)
-                    writer.WriteLine("| {0,-20} | {1,-20} | {2,20} | {3,-20} | {4,-20} | {5,-20} | {6,10} | {7,10} | {8,10} | {9,10} |",
-                        shop.Name, shop.Address, shop.PhoneNumber, ring.Manufacturer, ring.Name, ring.MetalType, ring.Weight, ring.Size, ring.Size, ring.Price);
+                for (int j = 0; j < shop.GetCount(); ++j)
+                    writer.WriteLine(shop.FormatTableRing(i));
 
             }
-            writer.WriteLine(new string('-', 191));
+            writer.WriteLine(new string('-', 162));
         }
     }
 }
